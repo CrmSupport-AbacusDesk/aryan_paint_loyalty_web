@@ -12,7 +12,7 @@
         <div class="header">
           <table> 
             <tr>
-              <th >Date / Kariger Name </th>
+              <th >Date / Painter Name </th>
               <th class="w130">Mobile No.</th>
               <th class="w110" >A/C Status</th>
               <th class="w100">Gift Status</th>
@@ -26,7 +26,8 @@
           <table>
             <tr *ngFor="let val of karigar; let i = index">
               <td><ng-container *ngIf="val.date_created  != '0000-00-00 00:00:00' "> {{val.date_created | date: 'dd MMM yyyy'}} /</ng-container>
-                <a class="blue" routerLink="/karigar-detail/{{val.karigar_id}}" routerLinkActive="active">{{val.first_name | titlecase }} {{val.last_name | titlecase }}</a>
+                {{val.first_name | titlecase }} {{val.last_name | titlecase }}
+                <!-- <a class="blue" routerLink="/karigar-detail/{{val.id}}" routerLinkActive="active">{{val.first_name | titlecase }} {{val.last_name | titlecase }}</a> -->
               </td>
               <td class="w130">{{val.mobile_no}}</td>
               <td class="w110 bg-change {{val.status}}">{{val.status}}</td>

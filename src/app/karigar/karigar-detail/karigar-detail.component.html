@@ -21,7 +21,8 @@
                         
                         <div class="detail-info pr0">
                             <div class="img-box">
-                                <div class="name-box point-sec" (click)="balanceModel(getData.id)">
+                                <!-- (click)="balanceModel(getData.id)" -->
+                                <div class="name-box point-sec" >
                                     <div class="points ">
                                         <a>{{total_wallet_points}}</a>
                                         <h4>Balance Points</h4>
@@ -190,7 +191,7 @@
                                         
                                         <li>
                                             <p>Employee Code</p>
-                                            <span>{{!getData.sales_user_employee_code? 'N/A' : getData.sales_user_employee_code| titlecase}}</span>
+                                            <span>{{getData.sales_user_employee_code ?  getData.sales_user_employee_code : '-----' | titlecase}}</span>
                                         </li>
                                         <li>
                                             <p>Mobile No.</p>
@@ -444,13 +445,13 @@
                                         <th class="w170">Date</th>
                                         <th class="w115">Req. ID</th>
                                         <th class="w100">Mobile No.</th>
-                                        <th class="w200">Gift</th>
+                                        <th class="">Gift</th>
                                         <th class="w50">Points</th>
                                         <th class="w220">Offer</th>
                                         <th class="w130">Redeem Status</th>
                                         <th class="w125">Gift Status</th>
                                         <th class="w110">Action</th>
-                                        <th class="w110">Reedem detail</th>
+                                        <!-- <th class="w110">Reedem detail</th> -->
                                     </tr>
                                 </table>
                             </div>
@@ -485,7 +486,7 @@
                                             </div>
                                         </th>
                                         
-                                        <th class="w200">
+                                        <th class="">
                                             <div class="search-form">
                                                 <input type="text" placeholder="Gift" [(ngModel)]="filter.gift"  (keyup.enter)="current_page = 1;getReedamList()">
                                                 <i class="material-icons">search</i>
@@ -537,11 +538,11 @@
                                         
                                         <th class="w110">
                                         </th>
-                                        <th class="w100">
-                                            <!-- <div class="form-area">             
+                                        <!-- <th class="w100">
+                                            <div class="form-area">             
                                                 <button mat-button class="go" (click)="getReedamList()">Go</button>
-                                            </div> -->
-                                        </th>
+                                            </div>
+                                        </th> -->
                                     </tr>
                                 </table>
                             </div>
@@ -555,7 +556,7 @@
                                         <td  class="w170"><ng-container *ngIf="val.date_created  != '0000-00-00 00:00:00' "> {{val.date_created | date: 'dd MMM yyyy'}} </ng-container></td>
                                         <td class="w115"><a class="blue pl5" routerLink="/redeem-request-detail/{{val.id}}">{{val.invoice_id  }}</a></td>
                                         <td class="w100">{{val.mobile_no}}</td>
-                                        <td class="w200">{{val.gift_title}}</td>
+                                        <td class="">{{val.gift_title}}</td>
                                         <td class="w50">{{val.gift_points}}</td>
                                         <td class="w220"><a  routerLink="/offer-detail"  routerLink="/offer-detail/{{val.offer_id}}" class="blue">{{val.title}} #{{val.offer_code}}</a> / {{val.end_date | date: 'dd MMM yyyy'}}</td>
                                         <td class="w130  {{val.gift_status}}" >{{val.gift_status}}
@@ -576,7 +577,7 @@
                                             
                                         </td>
                                         <td class="w110 blue"><a (click)="requestchangeStatus(i, val.id, val.gift_status )" *ngIf="val.receive_status != 'Received'  && val.gift_status != 'Reject' ">Gift Status</a></td>
-                                        <td class="w100" ><a class="blue" (click)="coupon_summary(val.id)">Summary</a></td>
+                                        <!-- <td class="w100" ><a class="blue" (click)="coupon_summary(val.id)">Summary</a></td> -->
                                     </tr>
                                 </table>
                             </div>

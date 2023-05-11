@@ -46,7 +46,7 @@
             <ul>
                 <li *ngFor="let val of banner; let i = index">
                     <div class="image-section1">
-                        <img [src]="db.myurl+'app/uploads/'+val.banner" (click)="openDialog(val.banner,'test8')" >
+                        <img [src]="db.myurl+'app/uploads/'+val.banner" (click)="openDialog(db.myurl+'app/uploads/'+val.banner,'test8')" >
                     </div>
                     <div class="hvr-edit">
                         <a class="delete-icn"><i class="material-icons" (click)="deleteImage(val.id)">delete_sweep</i></a>

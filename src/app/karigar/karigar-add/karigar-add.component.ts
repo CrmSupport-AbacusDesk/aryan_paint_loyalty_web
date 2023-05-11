@@ -182,7 +182,7 @@ export class KarigarAddComponent implements OnInit {
                 return;
             }
             this.router.navigate(['karigar-list/1']);
-            this.dialog.success('Karigar has been successfully added');
+            this.dialog.success('Painter has been successfully added');
         });
     }
     sales_users:any=[];

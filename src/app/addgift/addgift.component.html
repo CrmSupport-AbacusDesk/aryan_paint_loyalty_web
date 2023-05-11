@@ -11,7 +11,7 @@
                     <div class="sprate-box ">
                       <div class="full-offer">
                         <div class="top-heading">
-                          <h2>ADD GIFT</h2>
+                          <h2>{{gift_id ? 'EDIT' : 'ADD'}}  GIFT</h2>
                         </div>
                       </div>
                       
@@ -74,7 +74,7 @@
                                 </li>
                               </ul>
                               <div class="save un-save " style="cursor:pointer">
-                                <button mat-button  (click)="addgiftList()">ADD GIFT</button>
+                                <button mat-button  (click)="addgiftList()">{{gift_id ? 'UPDATE' : 'ADD'}}  GIFT</button>
                               </div>
                             </div>
                             
