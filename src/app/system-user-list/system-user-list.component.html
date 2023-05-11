@@ -1,0 +1,138 @@
+<div class="loader" *ngIf="loading_list">
+  <div class="loding-logo">
+      <mat-spinner></mat-spinner>
+  </div>
+</div>
+<div class="main-container ">
+  <div class="sticky-header">
+      <div class="middle-container">
+          <div class="tabs-list">
+              <h1>Master</h1>
+          </div>
+
+          <div class="left-auto">
+              <div class="refresh-btn">
+                  <a mat-button matTooltip="Refresh" matTooltipPosition="below" (click)="getUserList()"><i
+                          class="material-icons">refresh</i></a>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <div class="container-outer tab-container">
+    <app-master-tab></app-master-tab>
+    
+
+      <!-- <div class="fixed"> -->
+      <div>
+          <div class="css-table">
+              <div class="sticky-header">
+                  <div class="header">
+                      <table>
+                          <tr>
+                              <th class="w50">S.No</th>
+                              <th class="w110">Date Created</th>
+                              <th class="w140">Name</th>
+                              <th class="w100">Mobile No.</th>
+                              <th>User Name</th>
+                              <th class="w110">Password</th>
+                              <th class="w80">Status</th>
+                              <th class="w70">Action</th>
+                          </tr>
+                      </table>
+                  </div>
+                  <!-- <div class="header border-bott">
+                <table>
+                    <tr>
+                        <th class="w30">&nbsp;</th>
+                        <th class="">
+                            <div class="date-form">
+                                <i *ngIf="filter.date" class="material-icons" (click)="filter.date = '';getGiftList('') ">clear</i>
+                                <mat-form-field >
+                                    <input placeholder="Date" [(ngModel)]="filter.date"  name="date" (click)="openDatePicker(picker3)" matInput (dateChange)="getGiftList('')" [matDatepicker]="picker3" readonly>
+                                    <mat-datepicker-toggle matSuffix [for]="picker3" ></mat-datepicker-toggle>
+                                    <mat-datepicker #picker3></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </th>  
+                        <th class="w200" >
+                            <div class="search-form">
+                                <input type="text" placeholder="Title" [(ngModel)]="filter.title"  (keyup.enter)="current_page = 1;getGiftList('')">
+                                <i class="material-icons">search</i>
+                            </div>
+                        </th>
+                        <th class="w60"></th>
+                     
+                        <th class="w70"></th>
+
+                        <th class="w60">
+                          
+                        </th>
+                    </tr>
+                </table>
+            </div> -->
+              </div>
+          </div>
+      </div>
+
+      <div class="css-table">
+          <div class="table-container">
+              <div class="table-body">
+                  <table>
+                      <tr *ngFor="let val of userlist; let i = index">
+                          <td class="w50">{{i+1}}</td>
+                          <td class="w110">
+                              <ng-container *ngIf="val.date_created  != '0000-00-00 00:00:00' ">
+                                  <div class="date-tr">
+                                      <p>{{val.date_created | date: 'dd MMM yyyy'}}</p>
+                                  </div>
+                              </ng-container>
+                          </td>
+                          <td class="w140">{{val.first_name |titlecase}}</td>
+                          <td class="w100">{{val.phone |titlecase}}</td>
+                          <td>{{val.email}}</td>
+                          <td class="w110">{{val.visible_password}}</td>
+
+                          <td class="w80 text-center">
+                              <mat-slide-toggle [name]="'status'+i" [(ngModel)]="val.is_active"
+                                  (change)="updateStatus(i,$event)"></mat-slide-toggle>
+                          </td>
+                          <td class="w70 padding0">
+                              <div class=" td-flex ">
+                                  <button class="right" (click)="editUser(val)"><i
+                                          class="material-icons">edit</i></button>
+                                  <button class="cancel" (click)="deleteUser(val.id)"><i
+                                          class="material-icons">delete_sweep</i></button>
+                              </div>
+                          </td>
+                      </tr>
+                  </table>
+              </div>
+          </div>
+      </div>
+
+      <!-- <div class="container-outer">
+    <div class="container">
+        <div class="row">
+            
+        </div>
+    </div>
+    <div class="date-not" *ngIf="!loading_list && (filtering && gift.length == 0 )">
+        <div class="no-img">
+            <img src="assets/not-available.jpg"> 
+        </div>
+    </div>
+    <div class="date-not"  *ngIf="!loading_list && (!filtering && gift.length == 0 ) ">
+        <div class="no-img">
+            <img src="assets/not-available.jpg"> 
+        </div>
+        
+    </div>
+</div>  -->
+  </div>
+
+  <div class="add">
+      <button mat-button  class="add-btn" (click)="addUser()">
+        <i class="material-icons" >add</i>
+      </button>
+  </div>

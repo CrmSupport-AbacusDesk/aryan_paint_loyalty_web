@@ -1,0 +1,80 @@
+<div class="main-container">
+
+
+  <div class="row ">
+    <div class="col s12 ">
+        <div class="sprate-box cupns_mr ">
+            <div class="full-offer">
+                <div class="top-heading tp_bg">
+                    <h2>COUPONS DETAILS</h2>
+                    <!-- <p>Indicates required fields ( * )</p> -->
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+
+
+  <div class="container">
+    <div class="card card-statistics" style="width: 50%;margin-left: 250px;" hidden>
+      <div id="print_card">
+        <div id='qr_code_container' *ngFor="let row of print_coupon">
+          <div
+            style="padding:0px;height: 100.5905511811px; width: 377.9527559055px; border-radius: 10px;margin: 0 auto;display: flex;background-color: #fff; position: relative;">
+            <div style="width: 250px;">
+              <h5
+                style="font-family: 'Roboto', sans-serif;border-bottom: 1px solid #000;font-size: 14px;margin: 0;margin-bottom: 3px;padding-bottom: 3px;">
+                <span style="display:block;font-family: 'Roboto', sans-serif;margin: 0;">Disha Gypsum</span>
+              </h5>
+              <p style="font-family: 'Roboto', sans-serif;font-size: 12px;margin:0">Date of pkg. :{{row.date_created}}</p>
+              <p style="font-family: 'Roboto', sans-serif;font-size: 12px;margin:0">Coupon Code :{{row.coupon_code}}</p>
+              <p style="font-family: 'Roboto', sans-serif;font-size: 12px;margin:0">Brand Name :{{row.product_point_group}}</p>
+            </div>
+            <div style="text-align: right">
+              <div class="qr-img" style="width: 105px;overflow: hidden;height: 105px;">
+                <ngx-qrcode [elementType]="elementType" value="{{row.coupon_code}}" cssClass="aclass"
+                  errorCorrectionLevel="L">
+                </ngx-qrcode>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <button (click)="printData()">Print Data</button> -->
+
+    <div class="row">
+      <div class="col s12">
+        <!-- <div class="row"> -->
+          <div class="col s3" *ngFor="let row of print_coupon">
+            <div class="prnt_prt">
+              <div class="prt_txt">
+                <label><strong>Date:</strong> {{row.date_created}} </label><br>
+                <label><strong>Coupon Code:</strong> {{row.coupon_code}} </label><br>
+                <label><strong>Brand Name:</strong> {{row.product_point_group}}</label>
+              </div>
+              <div class="prnt_brc">
+
+                <div>
+                  <ngx-qrcode [elementType]="elementType" value="{{row.coupon_code}}" cssClass="aclass" errorCorrectionLevel="L">
+                  </ngx-qrcode>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+
+
+  <div class="fab-btns">
+   
+    <button mat-fab color="primary" (click)="printData()" >
+        <mat-icon>print</mat-icon>
+    </button>
+</div>
+
+</div>
