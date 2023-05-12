@@ -1,0 +1,172 @@
+<div class="lft_sd">
+  <form class="hp100" name="userForm" (ngSubmit)="f.form.valid && saveUser(f) " #f="ngForm" novalidate
+    autocomplete="off">
+    <div class="sprate-box no-shadow">
+      <div class="full-offer">
+        <div class="top-heading hdr_wdt">
+          <h2>Add System User</h2>
+          <button mat-button mat-dialog-close><i class="material-icons">clear</i></button>
+        </div>
+      </div>
+      <div class="add-image">
+        <div class="sco-12">
+          <div class="scrol-13">
+            <div class="option-field">
+              <div class="control-field">
+                <mat-form-field class="cs-input">
+                  <input matInput placeholder="Name" name="first_name" [(ngModel)]="userForm.first_name"
+                    #first_name="ngModel" required>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="option-field">
+              <div class="control-field">
+                <mat-form-field class="cs-input">
+                  <input matInput placeholder="Mobile Number" name="phone" (keypress)="numeric_Number($event)"
+                    maxlength="10" [(ngModel)]="userForm.phone" #phone="ngModel" required>
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- <div class="option-field">
+              <div class="control-field">
+                <mat-form-field class="cs-input">
+                  <input matInput placeholder="Create Password" name="password" (keypress)="numeric_Number($event)"
+                 [(ngModel)]="userForm.password" #password="ngModel" required>
+                </mat-form-field>
+              </div>
+            </div> -->
+
+
+
+            <div class="option-field">
+              <div class="control-field">
+                <mat-form-field class="cs-input">
+                  <input matInput placeholder="Create Password" name="visible_password"
+                    [(ngModel)]="userForm.visible_password" #visible_password="ngModel"
+                    pattern="(?=.*\d)(?=.*[a-z]).{8,}"
+                    title="Must contain at least one number and lowercase letter, and at least 8 or more characters"
+                    required>
+                </mat-form-field>
+
+
+                <div class="gst-nm" *ngIf="visible_password.errors?.pattern">Please Fill 1 no. and
+                  lowercase letter, and atleast 8 characters</div>
+
+
+              </div>
+            </div>
+
+
+            <div class="option-field">
+              <div class="control-field">
+                <mat-form-field class="cs-input">
+                  <input matInput placeholder="Email Id" name="email" [(ngModel)]="userForm.email" #email="ngModel"
+                    required>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="option-field mt15">
+              <div class="control-field">
+                <div class="territory-info">
+                  <div class="head">
+                    <h2>Assign Modules</h2>
+                  </div>
+                  <div class="cs-checkbox">
+                    <div class="checkbox-outer">
+                      <section class="checkbox-inner">
+                        <mat-checkbox class="check-list" name="dashboard" [(ngModel)]="userForm.dashboard"
+                          #dashboard="ngModel">
+                          Dashboard
+                        </mat-checkbox>
+                        <mat-checkbox class="check-list" name="offer" [(ngModel)]="userForm.offer" #offer="ngModel">
+                          Offer
+                        </mat-checkbox>
+
+
+                        <mat-checkbox class="check-list" name="gift_gallery" [(ngModel)]="userForm.gift_gallery"
+                        #gift_gallery="ngModel">
+                       Gift Gallery
+                      </mat-checkbox>
+
+                        <mat-checkbox class="check-list" name="redeem_request" [(ngModel)]="userForm.redeem_request"
+                          #redeem_request="ngModel">
+                          Redeem Request
+                        </mat-checkbox>
+
+                        <mat-checkbox class="check-list" name="karigar" [(ngModel)]="userForm.karigar"
+                          #karigar="ngModel">
+                         Painter
+                        </mat-checkbox>
+
+                        <mat-checkbox class="check-list" name="sales_user" [(ngModel)]="userForm.sales_user"
+                        #sales_user="ngModel">
+                       Sales Executive
+                      </mat-checkbox>
+
+                        <mat-checkbox class="check-list" name="coupon_code" [(ngModel)]="userForm.coupon_code" #coupon_code="ngModel">
+                          Coupon Code
+                        </mat-checkbox>
+
+                        <mat-checkbox class="check-list" name="feedback" [(ngModel)]="userForm.feedback"
+                          #feedback="ngModel">
+                         Feedback
+                        </mat-checkbox>
+
+                        <mat-checkbox class="check-list" name="faq" [(ngModel)]="userForm.faq"
+                          #faq="ngModel">
+                         Faq
+                        </mat-checkbox>
+
+                        <mat-checkbox class="check-list" name="master" [(ngModel)]="userForm.master"
+                          #master="ngModel">
+                       Master
+                        </mat-checkbox>
+
+                        <!-- <mat-checkbox class="check-list" name="services" [(ngModel)]="userForm.services"
+                          #services="ngModel">
+                          Services
+                        </mat-checkbox>
+
+                        <mat-checkbox class="check-list" name="display" [(ngModel)]="userForm.display"
+                          #display="ngModel">
+                          Display
+                        </mat-checkbox>
+                        <mat-checkbox class="check-list" name="customer" [(ngModel)]="userForm.customer"
+                          #customer="ngModel">
+                          Customer
+                        </mat-checkbox>
+                        <mat-checkbox class="check-list" name="plumber_meet" [(ngModel)]="userForm.plumber_meet"
+                          #plumber_meet="ngModel">
+                          Plumber Meet
+                        </mat-checkbox>
+
+                        <mat-checkbox class="check-list" name="enquiry" [(ngModel)]="userForm.enquiry"
+                          #enquiry="ngModel">
+                          Enquiry
+                        </mat-checkbox> -->
+
+                        <!-- <mat-checkbox class="check-list" name="survey" [(ngModel)]="userForm.survey" #survey="ngModel">
+                          Survey
+                        </mat-checkbox>
+
+                        <mat-checkbox class="check-list" name="master" [(ngModel)]="userForm.master" #master="ngModel">
+                          Master
+                        </mat-checkbox> -->
+                      </section>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="save btn-save mt90 ">
+      <button mat-button type="submit" class="grn_btn">Save</button>
+    </div>
+  </form>
+</div>
